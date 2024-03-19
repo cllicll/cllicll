@@ -5,7 +5,8 @@
 I am a mobile engineer from Turkey🇹🇷 I describe myself as a friendly social person. I have 3 year commercial experience in mobile development. I love to code with Flutter and Swift. Love to learn new technologies and frameworks. You can reach me via gmail , birincisinifdeli@gmail.com
 
  
-**💼 Currently working as:** Mobile Developer at <a href="https://www.vbt.com.tr/" target="_blank">VBT Yazılım</a> \n
+**💼 Currently working as:** Mobile Developer at <a href="https://www.vbt.com.tr/" target="_blank">VBT Yazılım</a>
+<br>
 **👨🏻‍💻 Currently working on:**
 <code><a href="https://docs.flutter.dev/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg"></a></code>
 <code><a href="https://firebase.google.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/firebase/firebase-ar21.svg"></a></code>
