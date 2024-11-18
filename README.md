@@ -5,7 +5,7 @@
 I am a mobile engineer from Turkey🇹🇷 I describe myself as a friendly social person. I have 4 year commercial experience in mobile development. I love to code with Flutter . Love to learn new technologies and frameworks. You can reach me via gmail , birincisinifdeli@gmail.com
 
  
-**💼 Currently working as:** Mobile Developer at <a href="" target="_blank">ErraTech</a>
+**💼 Currently working as:** Mobile Developer at <a href="https://www.linkedin.com/company/erratech/" target="_blank">ErraTech</a>
 <br>
 **👨🏻‍💻 Currently working on:**
 <code><a href="https://docs.flutter.dev/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg"></a></code>
