@@ -68,10 +68,10 @@ I specialize in building polished cross-platform applications with **Flutter**, 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/languages-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/languages-light.svg" />
-  <img alt="Primary languages of Celal's public original repositories" width="460" src="./assets/languages-dark.svg" />
+  <img alt="Celal's technology focus: Flutter, Swift, Node.js, PostgreSQL and Redis" width="460" src="./assets/languages-dark.svg" />
 </picture>
 
-<sub>Automatically refreshed daily from public GitHub repository data. Language counts represent each original repository's primary language, not coding proficiency. Private repositories and contribution counts are excluded.</sub>
+<sub>Automatically refreshed daily from public GitHub repository data. The technology card describes my development stack; it is not a measured language breakdown. Overview statistics use public repositories only, excluding private repositories and contribution counts.</sub>
 
 </div>
 
