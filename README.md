@@ -58,20 +58,20 @@ I specialize in building polished cross-platform applications with **Flutter**, 
 
 <div align="center">
 
-<!-- GitHub automatically chooses the image based on the visitor's color theme. -->
+<!-- Locally stored SVG cards, refreshed daily by GitHub Actions. -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=cllicll&show_icons=true&hide_border=true&bg_color=0D1117&title_color=A78BFA&text_color=C9D1D9&icon_color=8B5CF6" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=cllicll&show_icons=true&hide_border=true&bg_color=FFFFFF&title_color=6D28D9&text_color=24292F&icon_color=7C3AED" />
-  <img alt="Celal's GitHub statistics" height="170" src="https://github-readme-stats.vercel.app/api?username=cllicll&show_icons=true&hide_border=true" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/stats-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/stats-light.svg" />
+  <img alt="Celal's public GitHub repository statistics" width="460" src="./assets/stats-dark.svg" />
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=cllicll&layout=compact&hide_border=true&bg_color=0D1117&title_color=A78BFA&text_color=C9D1D9" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=cllicll&layout=compact&hide_border=true&bg_color=FFFFFF&title_color=6D28D9&text_color=24292F" />
-  <img alt="Most used public-repository languages" height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=cllicll&layout=compact&hide_border=true" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/languages-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/languages-light.svg" />
+  <img alt="Primary languages of Celal's public original repositories" width="460" src="./assets/languages-dark.svg" />
 </picture>
 
-<sub>Stats and language cards reflect public GitHub data and may be temporarily unavailable due to third-party service rate limits. The language card is based on repository code, not overall developer expertise.</sub>
+<sub>Automatically refreshed daily from public GitHub repository data. Language counts represent each original repository's primary language, not coding proficiency. Private repositories and contribution counts are excluded.</sub>
 
 </div>
 
