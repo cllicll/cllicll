@@ -30,7 +30,7 @@ jobs:
         run: python scripts/generate_stats.py
       - name: Commit SVG cards only when changed
         run: |
-          git add assets/stats-dark.svg assets/stats-light.svg assets/languages-dark.svg assets/languages-light.svg
+          git add assets/overview-v2-dark.svg assets/overview-v2-light.svg assets/focus-v2-dark.svg assets/focus-v2-light.svg
           if git diff --cached --quiet; then
             echo 'No statistics changes.'
             exit 0
