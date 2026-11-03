@@ -1,6 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="460" height="250" viewBox="0 0 460 250" role="img" aria-labelledby="t d">
-<title id="t">Repository Languages</title><desc id="d">Awaiting first GitHub Actions update</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="250" viewBox="0 0 460 250" role="img" aria-labelledby="title desc">
+<title id="title">Repository Languages</title>
+<desc id="desc">Primary language by public original repository count, not code bytes or proficiency.</desc>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}</style>
 <rect x="1" y="1" width="458" height="248" rx="14" fill="#FFFFFF" stroke="#E5E7EB"/>
-<text x="26" y="42" fill="#6D28D9" font-family="Arial,sans-serif" font-size="21" font-weight="700">Repository Languages</text>
-<text x="26" y="108" fill="#24292F" font-family="Arial,sans-serif" font-size="15">Awaiting first automatic update</text>
+<text x="26" y="40" font-size="21" font-weight="700" fill="#6D28D9">Repository Languages</text>
+<path d="M26 55 H434" stroke="#E5E7EB"/>
+<rect x="26" y="73" width="272.0" height="11" rx="2" fill="#3572A5"/>
+<rect x="298.0" y="73" width="136.0" height="11" rx="2" fill="#E34C26"/>
+<rect x="27" y="97" width="10" height="10" rx="3" fill="#3572A5"/>
+<text x="46" y="108" font-size="13" font-weight="400" fill="#24292F">Python</text>
+<text x="431" y="108" font-size="12" font-weight="400" fill="#57606A" text-anchor="end">2 repos</text>
+<rect x="27" y="120" width="10" height="10" rx="3" fill="#E34C26"/>
+<text x="46" y="131" font-size="13" font-weight="400" fill="#24292F">HTML</text>
+<text x="431" y="131" font-size="12" font-weight="400" fill="#57606A" text-anchor="end">1 repo</text>
+<text x="26" y="229" font-size="11" font-weight="400" fill="#57606A">Primary language per public original repository</text>
 </svg>
