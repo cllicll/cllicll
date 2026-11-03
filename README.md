@@ -54,24 +54,17 @@ I specialize in building polished cross-platform applications with **Flutter**, 
 - Deepening my native iOS knowledge with Swift & SwiftUI
 - Turning promising product ideas into real-world applications
 
-## 📊 GitHub Activity
+## 🧰 Technology Focus
 
 <div align="center">
-
-<!-- Locally stored SVG cards, refreshed daily by GitHub Actions. -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/overview-v2-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/overview-v2-light.svg" />
-  <img alt="Celal's public repository snapshot" width="460" src="./assets/overview-v2-dark.svg" />
-</picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/focus-v2-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/focus-v2-light.svg" />
-  <img alt="Celal's technology focus: Flutter, Swift, Node.js, PostgreSQL and Redis" width="460" src="./assets/focus-v2-dark.svg" />
+  <img alt="Celal's engineering focus: Flutter/Dart, Swift/SwiftUI, Node.js/NestJS, PostgreSQL/Redis" width="460" src="./assets/focus-v2-dark.svg" />
 </picture>
 
-<sub>The repository snapshot covers public repositories only, unless an authorized data source is separately configured. Private repositories and contributions are not included. Technology Focus describes my stack, not code language percentages.</sub>
+<sub>These are my technical focus areas, not repository language percentages. GitHub's contribution graph on my profile shows my activity separately.</sub>
 
 </div>
 
