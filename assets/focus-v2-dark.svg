@@ -6,16 +6,16 @@
 <text x="26" y="40" font-size="21" font-weight="700" fill="#C4B5FD">Technology Focus</text>
 <path d="M26 55 H434" stroke="#30363D"/>
 <rect x="26" y="79" width="9" height="9" rx="3" fill="#00B4AB"/>
-<text x="45" y="91" font-size="13" fill="#9DA7B5">Mobile</text>
+<text x="45" y="91" font-size="13" font-weight="400" fill="#9DA7B5">Mobile</text>
 <text x="431" y="91" font-size="13" font-weight="600" fill="#E6EDF3" text-anchor="end">Flutter / Dart</text>
 <rect x="26" y="112" width="9" height="9" rx="3" fill="#F05138"/>
-<text x="45" y="124" font-size="13" fill="#9DA7B5">iOS learning</text>
+<text x="45" y="124" font-size="13" font-weight="400" fill="#9DA7B5">iOS learning</text>
 <text x="431" y="124" font-size="13" font-weight="600" fill="#E6EDF3" text-anchor="end">Swift / SwiftUI</text>
 <rect x="26" y="145" width="9" height="9" rx="3" fill="#3178C6"/>
-<text x="45" y="157" font-size="13" fill="#9DA7B5">Backend</text>
+<text x="45" y="157" font-size="13" font-weight="400" fill="#9DA7B5">Backend</text>
 <text x="431" y="157" font-size="13" font-weight="600" fill="#E6EDF3" text-anchor="end">Node.js / NestJS</text>
 <rect x="26" y="178" width="9" height="9" rx="3" fill="#8B5CF6"/>
-<text x="45" y="190" font-size="13" fill="#9DA7B5">Data</text>
+<text x="45" y="190" font-size="13" font-weight="400" fill="#9DA7B5">Data</text>
 <text x="431" y="190" font-size="13" font-weight="600" fill="#E6EDF3" text-anchor="end">PostgreSQL / Redis</text>
-<text x="26" y="235" font-size="11" fill="#9DA7B5">Declared stack - not repository language statistics</text>
+<text x="26" y="235" font-size="11" font-weight="400" fill="#9DA7B5">Declared stack - not repository language statistics</text>
 </svg>
