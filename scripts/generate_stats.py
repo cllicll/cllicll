@@ -75,32 +75,25 @@ def stats(repos, theme):
     return card("GitHub Overview", "Public repository counts, stars and forks; private repositories excluded.", lines, theme, 215)
 
 
-def languages(repos, theme):
+def technology_focus(theme):
+    """Declared technology focus, not inferred language percentages."""
     bg, border, accent, fg, muted = THEMES[theme]
-    counts = {}
-    for repo in repos:
-        if not repo.get("fork") and repo.get("language"):
-            language = repo["language"]
-            counts[language] = counts.get(language, 0) + 1
-    ordered = sorted(counts.items(), key=lambda entry: (-entry[1], entry[0]))
-    total = sum(counts.values())
+    groups = [
+        ("Mobile", "Flutter / Dart", "#00B4AB"),
+        ("iOS learning", "Swift / SwiftUI", "#F05138"),
+        ("Backend", "Node.js / NestJS", "#3178C6"),
+        ("Data", "PostgreSQL / Redis", "#8B5CF6"),
+    ]
     lines = []
-    if not total:
-        lines.append(tx(26, 103, "No primary languages available yet", 14, muted))
-    else:
-        position = 26
-        for language, count in ordered:
-            width = 408 * count / total
-            lines.append(rect(round(position, 2), 73, round(width, 2), 11, LANG_COLORS.get(language, "#8B5CF6"), 2))
-            position += width
-        for i, (language, count) in enumerate(ordered[:4]):
-            y = 108 + i*23
-            lines.extend([rect(27, y-11, 10, 10, LANG_COLORS.get(language, "#8B5CF6"), 3),
-                          tx(46, y, language, 13, fg), tx(431, y, str(count) + (" repos" if count != 1 else " repo"), 12, muted, anchor="end")])
-        if len(ordered) > 4:
-            lines.append(tx(26, 203, f"+ {len(ordered)-4} more languages", 11, muted))
-    lines.append(tx(26, 229, "Primary language per public original repository", 11, muted))
-    return card("Repository Languages", "Primary language by public original repository count, not code bytes or proficiency.", lines, theme, 250)
+    for index, (label, value, color) in enumerate(groups):
+        y = 91 + index * 33
+        lines.extend([
+            rect(26, y - 12, 9, 9, color, 3),
+            tx(45, y, label, 13, muted),
+            tx(431, y, value, 13, fg, 600, "end"),
+        ])
+    lines.append(tx(26, 235, "Declared stack - not repository language statistics", 11, muted))
+    return card("Technology Focus", "Self-described engineering stack; not measured repository usage.", lines, theme, 255)
 
 
 def main():
@@ -108,7 +101,7 @@ def main():
     ASSETS.mkdir(exist_ok=True)
     for theme in THEMES:
         (ASSETS / f"stats-{theme}.svg").write_text(stats(repos, theme), encoding="utf-8")
-        (ASSETS / f"languages-{theme}.svg").write_text(languages(repos, theme), encoding="utf-8")
+        (ASSETS / f"languages-{theme}.svg").write_text(technology_focus(theme), encoding="utf-8")
     print(f"Generated SVG cards for {USER}: {len(repos)} public repositories")
 
 
