@@ -7,7 +7,8 @@ from urllib.request import Request, urlopen
 from xml.sax.saxutils import escape
 
 USER = os.getenv("PROFILE_USERNAME", "cllicll")
-TOKEN = os.getenv("GITHUB_TOKEN")
+TOKEN = os.getenv("PROFILE_STATS_TOKEN") or os.getenv("GITHUB_TOKEN")
+FULL_ACCESS = bool(os.getenv("PROFILE_STATS_TOKEN"))
 ASSETS = Path(__file__).resolve().parents[1] / "assets"
 HEADERS = {"Accept": "application/vnd.github+json", "User-Agent": "profile-card-generator", "X-GitHub-Api-Version": "2022-11-28"}
 if TOKEN:
@@ -26,18 +27,28 @@ def api(path):
         return json.load(response)
 
 
-def public_repos():
-    profile = api("/users/" + USER)
-    if profile.get("login", "").lower() != USER.lower():
-        raise RuntimeError("Unexpected GitHub user")
+def repositories():
+    """List accessible owned repositories; only use all-repo scope with a user token."""
+    if FULL_ACCESS:
+        viewer = api("/user")
+        if viewer.get("login", "").lower() != USER.lower():
+            raise RuntimeError("PROFILE_STATS_TOKEN does not belong to the requested profile")
+        endpoint = "/user/repos?affiliation=owner&sort=full_name&per_page=100&page="
+        scope = "accessible owned"
+    else:
+        profile = api("/users/" + USER)
+        if profile.get("login", "").lower() != USER.lower():
+            raise RuntimeError("Unexpected GitHub user")
+        endpoint = f"/users/{USER}/repos?type=owner&sort=full_name&per_page=100&page="
+        scope = "public"
     result = []
     for page in range(1, 21):
-        batch = api(f"/users/{USER}/repos?type=owner&sort=full_name&per_page=100&page={page}")
+        batch = api(endpoint + str(page))
         if not isinstance(batch, list):
             raise RuntimeError("Invalid API response")
-        result.extend(r for r in batch if not r.get("private", False))
+        result.extend(r for r in batch if FULL_ACCESS or not r.get("private", False))
         if len(batch) < 100:
-            return result
+            return result, scope
     raise RuntimeError("Too many pages; refusing incomplete metrics")
 
 
@@ -61,18 +72,30 @@ def card(title, description, lines, theme, height):
     return "\n".join(parts) + "\n"
 
 
-def stats(repos, theme):
+def stats(repos, scope, theme):
     bg, border, accent, fg, muted = THEMES[theme]
     original = [r for r in repos if not r.get("fork")]
-    items = [("Public repositories", len(repos)), ("Original repositories", len(original)),
-             ("Stars received", sum(r.get("stargazers_count", 0) for r in original)),
-             ("Forks received", sum(r.get("forks_count", 0) for r in original))]
+    if scope == "public":
+        title = "Public Repository Snapshot"
+        rows = [("Public repositories", len(repos)),
+                ("Original public repos", len(original)),
+                ("Stars on originals", sum(r.get("stargazers_count", 0) for r in original)),
+                ("Public forks", len(repos) - len(original))]
+        footnote = "Only public repositories; private work is excluded"
+    else:
+        title = "Accessible Repository Snapshot"
+        rows = [("Accessible owned repos", len(repos)),
+                ("Private repositories", sum(bool(r.get("private")) for r in repos)),
+                ("Public repositories", sum(not r.get("private") for r in repos)),
+                ("Original repositories", len(original))]
+        footnote = "Based on repositories visible to your configured token"
     lines = []
-    for i, (label, value) in enumerate(items):
-        y = 91 + i*29
-        lines.extend([tx(26, y, label, 14, muted), tx(432, y, f"{value:,}", 17, fg, 700, "end")])
-    lines.append(tx(26, 195, "Source: public GitHub repositories", 11, muted))
-    return card("GitHub Overview", "Public repository counts, stars and forks; private repositories excluded.", lines, theme, 215)
+    for i, (label, value) in enumerate(rows):
+        y = 91 + i * 29
+        lines.extend([tx(26, y, label, 14, muted),
+                      tx(432, y, f"{value:,}", 17, fg, 700, "end")])
+    lines.append(tx(26, 195, footnote, 10, muted))
+    return card(title, footnote, lines, theme, 215)
 
 
 def technology_focus(theme):
@@ -97,12 +120,12 @@ def technology_focus(theme):
 
 
 def main():
-    repos = public_repos()
+    repos, scope = repositories()
     ASSETS.mkdir(exist_ok=True)
     for theme in THEMES:
-        (ASSETS / f"stats-{theme}.svg").write_text(stats(repos, theme), encoding="utf-8")
-        (ASSETS / f"languages-{theme}.svg").write_text(technology_focus(theme), encoding="utf-8")
-    print(f"Generated SVG cards for {USER}: {len(repos)} public repositories")
+        (ASSETS / f"overview-v2-{theme}.svg").write_text(stats(repos, scope, theme), encoding="utf-8")
+        (ASSETS / f"focus-v2-{theme}.svg").write_text(technology_focus(theme), encoding="utf-8")
+    print(f"Generated SVG cards for {USER}: {len(repos)} {scope} repositories")
 
 
 if __name__ == "__main__":
